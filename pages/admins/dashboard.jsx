@@ -1,10 +1,19 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Dashboard from '../../components/Dashboard'
 import Navbar from '../../components/Navbar'
 import Sidebar from '../../components/Sidebar'
+import { useRouter } from 'next/router'
+
 
 const dashboard = () => {
     const [sidebar, setSidebar] = useState(false)
+    const router = useRouter()
+    useEffect(() => {
+        if (!localStorage.getItem('adminToken')) {
+            router.push('/admins/')
+        }
+    }, [])
+
     return (
         <div>
             <div className="flex relative">
