@@ -12,6 +12,8 @@ const GlobalProvider = ({ children }) => {
     const [adminToken, setAdminToken] = useState(!ISSERVER ? localStorage.getItem('adminToken') || false : '')
     // admin state
     const [admins, setAdmins] = useState('');
+    // get category
+    // const [category, setAdmins] = useState('');
 
 
     const adminLogin = async (data) => {

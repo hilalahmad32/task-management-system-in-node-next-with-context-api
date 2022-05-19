@@ -4,6 +4,21 @@ import adminMiddleware from '../middleware/adminAuth'
 
 const handler = nc()
     .use(adminMiddleware)
+    .get(async (req, res) => {
+        // get all category
+        const categorys = await Category.find({});
+        if (categorys) {
+            res.send({
+                success: true,
+                categorys: categorys
+            })
+        } else {
+            res.send({
+                success: true,
+                categorys: 'Some problem'
+            })
+        }
+    })
     .post(async (req, res) => {
         try {
             // get category name from nextjs
