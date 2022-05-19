@@ -36,7 +36,7 @@ const GlobalProvider = ({ children }) => {
     }
     // get admins username
     const getAdmins = async () => {
-        const res = await (await fetch('../api/admins/admins', {
+        const res = await (await fetch('../../api/admins/admins', {
             method: "GET",
             headers: {
                 'Content-Type': 'application/json',
@@ -44,7 +44,6 @@ const GlobalProvider = ({ children }) => {
             }
         })).json()
         setAdmins(res.admins)
-        console.log(res);
 
     }
 
@@ -54,13 +53,33 @@ const GlobalProvider = ({ children }) => {
         localStorage.removeItem('adminToken')
         router.push('/admins/')
     }
+    // add category
+
+    const addCategory = async (data) => {
+        const { category_name } = data;
+        const res = await (await fetch('../../api/admins/category', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json',
+                'adminauthtoken': localStorage.getItem('adminToken')
+            }
+        })).json();
+        if (res.success) {
+            alert(res.message);
+            category_name = "";
+            router.push('/admins/category')
+        } else {
+            alert(res.message)
+        }
+    }
 
     useEffect(() => {
         getAdmins()
     }, [])
 
     return (
-        <GlobalContext.Provider value={{ adminToken, adminLogin, adminLogout, admins }}>
+        <GlobalContext.Provider value={{ adminToken, adminLogin, adminLogout, admins, addCategory }}>
             {children}
         </GlobalContext.Provider>
     )

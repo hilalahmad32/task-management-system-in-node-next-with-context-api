@@ -25,7 +25,7 @@ const Sidebar = ({ sidebar }) => {
                         </li>
                         <li className="flex bg-purple-600 items-center py-2 px-4 my-3 rounded cursor-pointer hover:bg-purple-700 transition mx-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="h-6 w-6 fill-white"><path d="M0 96C0 60.65 28.65 32 64 32H448C483.3 32 512 60.65 512 96V416C512 451.3 483.3 480 448 480H64C28.65 480 0 451.3 0 416V96zM64 416H224V160H64V416zM448 160H288V416H448V160z" /></svg>
-                            <span className="text-md ml-3 text-white">Category</span>
+                            <Link href='/admins/category'><a><span className="text-md ml-3 text-white">Category</span></a></Link>
                         </li>
                         <li className="flex bg-purple-600 items-center py-2 px-4 my-3 rounded cursor-pointer hover:bg-purple-700 transition mx-2">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-6 h-6 fill-white"><path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" /></svg>
