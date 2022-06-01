@@ -6,7 +6,7 @@ const TaskSchema = new mongoose.Schema({
     },
     category: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'category'
+        ref: 'Category'
     },
     content: {
         type: String,
@@ -26,7 +26,7 @@ const TaskSchema = new mongoose.Schema({
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     },
     create_At: {
         type: Date,
